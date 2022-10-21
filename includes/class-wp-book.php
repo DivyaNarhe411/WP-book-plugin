@@ -160,6 +160,8 @@ class Wp_Book {
 		$this->loader->add_action( 'init', $plugin_admin, 'wp_custom_book_init' );
 		// Register custom post taxonomy.
 		$this->loader->add_action( 'init', $plugin_admin, 'wp_custom_book_taxonomy_init' );
+		// Register custom post taxonomy i.e tag.
+		$this->loader->add_action( 'init', $plugin_admin, 'wp_custom_tag_book_init' );
 	}
 
 	/**
