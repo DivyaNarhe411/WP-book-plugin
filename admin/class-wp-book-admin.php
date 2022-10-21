@@ -105,7 +105,7 @@ class Wp_Book_Admin {
 	 */
 	public function wp_custom_book_init() {
 		$labels = array(
-			'name'               => _x( 'Books', 'Post type general name', 'wp-book' ),
+			'name'               => _x( 'Books', 'Post type generwp-bookwp-book' ),
 			'singular_name'      => _x( 'Book', 'Post type singular name', 'wp-book' ),
 			'menu_name'          => _x( 'Books', 'Admin Menu text', 'wp-book' ),
 			'name_admin_bar'     => _x( 'Book', 'Add New on Toolbar', 'wp-book' ),
@@ -132,11 +132,51 @@ class Wp_Book_Admin {
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
+			'taxonomies'         => array( 'Book Category' ),
 			'menu_position'      => null,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
 			'menu_icon'          => 'dashicons-book-alt',
 		);
 
 		register_post_type( 'book', $args );
+	}
+	/**
+	 * Create a custom hierarchical taxonomy Book Category
+	 */
+	public function wp_custom_book_taxonomy_init() {
+
+		$labels = array(
+			'name'                       => _x( 'Book Categories', 'Taxonomy General Name', 'wp-book' ),
+			'singular_name'              => _x( 'Book Category', 'Taxonomy Singular Name', 'wp-book' ),
+			'menu_name'                  => __( 'Book Category', 'wp-book' ),
+			'all_items'                  => __( 'All Items', 'wp-book' ),
+			'parent_item'                => __( 'Parent Item', 'wp-book' ),
+			'parent_item_colon'          => __( 'Parent Item:', 'wp-book' ),
+			'new_item_name'              => __( 'Add Book Category', 'wp-book' ),
+			'add_new_item'               => __( 'Add New Book Category', 'wp-book' ),
+			'edit_item'                  => __( 'Edit Book Category', 'wp-book' ),
+			'update_item'                => __( 'Update Book Category', 'wp-book' ),
+			'view_item'                  => __( 'View Book Category', 'wp-book' ),
+			'separate_items_with_commas' => __( 'Separate items with commas', 'wp-book' ),
+			'add_or_remove_items'        => __( 'Add or remove items', 'wp-book' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'wp-book' ),
+			'popular_items'              => __( 'Popular Items', 'wp-book' ),
+			'search_items'               => __( 'Search Items', 'wp-book' ),
+			'not_found'                  => __( 'Not Found', 'wp-book' ),
+			'no_terms'                   => __( 'No items', 'wp-book' ),
+			'items_list'                 => __( 'Items list', 'wp-book' ),
+			'items_list_navigation'      => __( 'Items list navigation', 'wp-book' ),
+		);
+
+		$args = array(
+			'labels'            => $labels,
+			'hierarchical'      => true,
+			'public'            => true,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+			'show_tagcloud'     => true,
+		);
+		register_taxonomy( 'Book Category', array( 'book' ), $args );
 	}
 }

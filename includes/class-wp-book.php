@@ -158,6 +158,8 @@ class Wp_Book {
 
 		// Register custom post type.
 		$this->loader->add_action( 'init', $plugin_admin, 'wp_custom_book_init' );
+		// Register custom post taxonomy.
+		$this->loader->add_action( 'init', $plugin_admin, 'wp_custom_book_taxonomy_init' );
 	}
 
 	/**
