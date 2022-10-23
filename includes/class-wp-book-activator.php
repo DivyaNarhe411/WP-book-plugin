@@ -31,5 +31,14 @@ class Wp_Book_Activator {
 	public static function activate() {
 
 	}
+	/**
+	 * Create Database table
+	 */
+	public function add_table() {
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . 'bookinfo';
+
+	}
 
 }
