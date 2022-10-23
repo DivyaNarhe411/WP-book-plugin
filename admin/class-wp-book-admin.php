@@ -221,4 +221,78 @@ class Wp_Book_Admin {
 
 		register_taxonomy( 'Book Tag', array( 'book' ), $args );
 	}
+	/**
+	 * Register custom metabox for books.
+	 *
+	 * @param object $post Conatain all information about CPT 'book'.
+	 */
+	public function register_metabox_book( $post ) {
+		add_meta_box( 'books-details', __( 'Books Information' ), array( $this, 'wp_custom_metabox_book_cb' ), array( 'book' ), 'normal', 'high' );
+
+	}
+	/**
+	 * Register custom metabox for books.
+	 *
+	 * @param object $post Conatain all information about CPT 'book'.
+	 */
+	public function wp_custom_metabox_book_cb( $post ) {
+		$get_book_metadata = get_metadata( 'book', $post->ID );
+
+		if ( count( $get_book_metadata ) > 0 ) {
+			$author    = $get_book_metadata['author_name'][0];
+			$price     = $get_book_metadata['price'][0];
+			$publisher = $get_book_metadata['publisher'][0];
+			$year      = $get_book_metadata['year'][0];
+			$edition   = $get_book_metadata['edition'][0];
+			$url       = $get_book_metadata['url'][0];
+		} else {
+			$author    = '';
+			$price     = '';
+			$publisher = '';
+			$year      = '';
+			$edition   = '';
+			$url       = '';
+		}
+		wp_nonce_field( basename( __FILE__ ), 'custom_books_info_nonce' );
+		?>
+		<table class="form-table">
+		<tbody>
+			<tr>
+				<th scope="row"><label for="wp-cpt-book-author-name">Author Name</label></th>
+				<td><input name="wp-cpt-book-author-name" type="text" id="wp-cpt-book-author-name" placeholder="Author Name" value="<?php echo esc_attr( $author ); ?>" class="regular-text"></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="wp-cpt-book-price">Price</label></th>
+				<td><input name="wp-cpt-book-price" type="text" id="wp-cpt-book-price" placeholder="Book Price" value="<?php echo esc_attr( $price ); ?>" class="regular-text"></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="wp-cpt-book-publisher">Publisher</label></th>
+				<td><input name="wp-cpt-book-publisher" type="text" id="wp-cpt-book-publisher" placeholder="Publisher" value="<?php echo esc_attr( $publisher ); ?>" class="regular-text"></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="wp-cpt-book-year">Year</label></th>
+				<td><input name="wp-cpt-book-year" type="number" id="wp-cpt-book-year" placeholder="Year" value="<?php echo esc_attr( $year ); ?>" class="regular-text"></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="wp-cpt-book-edition">Edition</label></th>
+				<td><input name="wp-cpt-book-edition" type="text" id="wp-cpt-book-edition" placeholder="Edition" value="<?php echo esc_attr( $edition ); ?>" class="regular-text"></td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="wp-cpt-book-url">Book URL</label></th>
+				<td><input name="wp-cpt-book-url" type="url" id="wp-cpt-book-url" placeholder="https://example.com" value="<?php echo esc_attr( $url ); ?>" class="regular-text"></td>
+			</tr>
+		</tbody>
+		</table>
+		<?php
+	}
+	/**
+	 * Saving data into metabox
+	 *
+	 * @param object $post_id return id of current post.
+	 * @param object $post Conatain all information about CPT.
+	 * @param object $update Updates value of fields.
+	 */
+	public function save_metabox_book( $post_id, $post, $update ) {
+	}
+
 }
