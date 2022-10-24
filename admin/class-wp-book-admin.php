@@ -379,7 +379,7 @@ class Wp_Book_Admin {
 		?>
 		<div class="wrap">
 		<?php
-		if ( isset( $_GET['settings-updated'] ) && true === $_GET['settings-updated'] ) {
+		if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) {
 			?>
 			<div class="notice notice-success"><p>Settings Saved Successfully</p></div>
 			<?php
@@ -416,5 +416,12 @@ class Wp_Book_Admin {
 		</div>
 		<?php
 		echo ob_get_clean();
+	}
+	/**
+	 * Registers the settings group for each input field.
+	 */
+	public function register_book_settings() {
+		register_setting( 'book_settings_group', 'book_currency' );
+		register_setting( 'book_settings_group', 'book_no_pages' );
 	}
 }

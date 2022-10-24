@@ -170,6 +170,8 @@ class Wp_Book {
 		$this->loader->add_action( 'save_post', $plugin_admin, 'save_metabox_book', 10, 2 );
 		// Action hook for admin_menu.
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'book_menu' );
+		// Action hook to register the settings for book.
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_book_settings' );
 	}
 
 	/**
