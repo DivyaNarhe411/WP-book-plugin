@@ -120,6 +120,7 @@ class Wp_Book {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wp-book-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'widgets/class-wpb-book-widget.php';
 
 		$this->loader = new Wp_Book_Loader();
 
@@ -191,9 +192,10 @@ class Wp_Book {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 			// Create Shortcode named book to show information about book.
 			add_shortcode( 'book', array( $plugin_public, 'load_book_content' ) );
+			// action hook to display custom widget which shows books of selected category.
+		add_action( 'widgets_init', 'wp_book_widget_init' );
 
 	}
-
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
