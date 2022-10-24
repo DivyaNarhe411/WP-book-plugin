@@ -189,6 +189,8 @@ class Wp_Book {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+			// Create Shortcode named book to show information about book.
+			add_shortcode( 'book', array( $plugin_public, 'load_book_content' ) );
 
 	}
 
