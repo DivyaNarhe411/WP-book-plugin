@@ -28,17 +28,37 @@ class Wp_Book_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
-
+	public function activate() {
+		$this->init_db_myplugin();
 	}
 	/**
-	 * Create Database table
+	 * Initialize DB Tables.
+	 *
+	 * @return void
 	 */
-	public function add_table() {
-		global $wpdb;
+	public function init_db_myplugin() {
 
-		$table_name = $wpdb->prefix . 'bookinfo';
+		// WP Globals.
+		global $table_prefix, $wpdb;
 
+		// book Table.
+		$book_table = $table_prefix . 'bookmeta';
+
+		// Create book Table if not exist.
+		if ( $wpdb->get_var( "SHOW tables like '$book_table'" ) !== $book_table ) {
+
+			// dynamic generate table.
+			$table_query = 'CREATE TABLE `' . $book_table . "` (  
+				`meta_id` bigint(20) NOT NULL AUTO_INCREMENT,  
+				`book_id` bigint(20) NOT NULL DEFAULT '0',  
+				`meta_key` varchar(255) DEFAULT NULL,  
+				`meta_value` longtext,  
+				PRIMARY KEY (`meta_id`),  
+				KEY `book_id` (`book_id`),  
+				KEY `meta_key` (`meta_key`)) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+
+			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+			dbDelta( $table_query );
+		}
 	}
-
 }
