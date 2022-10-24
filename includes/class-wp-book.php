@@ -164,8 +164,10 @@ class Wp_Book {
 		$this->loader->add_action( 'init', $plugin_admin, 'wp_custom_tag_book_init' );
 		// Register custom metabox for CPT 'book'.
 		$this->loader->add_action( 'add_meta_boxes_book', $plugin_admin, 'register_metabox_book', 10, 1 );
+		// Register table for metadata.
+		$this->loader->add_action( 'plugins_loaded', $plugin_admin, 'register_bookmeta_table' );
 		// Register save metabox function.
-		$this->loader->add_action( 'save_post_book', $plugin_admin, 'save_metabox_book', 10, 3 );
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_metabox_book', 10, 2 );
 	}
 
 	/**

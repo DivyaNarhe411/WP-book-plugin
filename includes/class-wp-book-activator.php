@@ -20,35 +20,17 @@
  * @author     Divya <divya.narhe@gmail.com>
  */
 class Wp_Book_Activator {
-
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public function activate() {
-		$this->init_db_myplugin();
-	}
 	/**
 	 * Initialize DB Tables.
 	 *
 	 * @return void
 	 */
-	public function init_db_myplugin() {
-
-		// WP Globals.
-		global $table_prefix, $wpdb;
-
-		// book Table.
-		$book_table = $table_prefix . 'bookmeta';
-
-		// Create book Table if not exist.
-		if ( $wpdb->get_var( "SHOW tables like '$book_table'" ) !== $book_table ) {
+	public function activate() {
+		global $wpdb;
+		if ( $wpdb->get_var( "SHOW tables like '" . $this->wpb_bookmeta() . "'" ) !== $this->wpb_bookmeta() ) {
 
 			// dynamic generate table.
-			$table_query = 'CREATE TABLE `' . $book_table . "` (  
+			$table_query = 'CREATE TABLE `' . $this->wpb_bookmeta() . "` (  
 				`meta_id` bigint(20) NOT NULL AUTO_INCREMENT,  
 				`book_id` bigint(20) NOT NULL DEFAULT '0',  
 				`meta_key` varchar(255) DEFAULT NULL,  
@@ -60,5 +42,14 @@ class Wp_Book_Activator {
 			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 			dbDelta( $table_query );
 		}
+	}
+	/**
+	 * Created table.
+	 *
+	 * @return table.
+	 */
+	public function wpb_bookmeta() {
+		global $wpdb;
+		return $wpdb->prefix . 'bookmeta';
 	}
 }
