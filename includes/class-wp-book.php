@@ -172,6 +172,8 @@ class Wp_Book {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'book_menu' );
 		// Action hook to register the settings for book.
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_book_settings' );
+		// action hook to display widget on dashboard as top 5 categories of book post type based on their count.
+		$this->loader->add_action( 'wp_dashboard_setup', $plugin_admin, 'custom_dashboard_widgets' );
 	}
 
 	/**

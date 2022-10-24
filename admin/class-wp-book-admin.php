@@ -379,7 +379,7 @@ class Wp_Book_Admin {
 		?>
 		<div class="wrap">
 		<?php
-		if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true ) {
+		if ( isset( $_GET['settings-updated'] ) && true == $_GET['settings-updated'] ) {
 			?>
 			<div class="notice notice-success"><p>Settings Saved Successfully</p></div>
 			<?php
@@ -424,4 +424,42 @@ class Wp_Book_Admin {
 		register_setting( 'book_settings_group', 'book_currency' );
 		register_setting( 'book_settings_group', 'book_no_pages' );
 	}
+
+	/**
+	 * Create a custom widget for dashboard
+	 *
+	 * @return void
+	 */
+	public function custom_dashboard_widgets() {
+		global $wp_meta_boxes;
+		wp_add_dashboard_widget( 'book_widget', 'Top 5 Book Categories', array( $this, 'custom_dashboard_help' ) );
+	}
+
+	/**
+	 * Provides Top 5 categories of book post type based on their count.
+	 *
+	 * @return void
+	 */
+	public function custom_dashboard_help() {
+		global $wpdb;
+		$get_term_ids   = $wpdb->get_col( "SELECT term_id FROM `wp_term_taxonomy` WHERE taxonomy = 'Book Category' ORDER BY count DESC LIMIT 5" );
+		$top_terms_name = array();
+		$top_terms_slug = array();
+		foreach ( $get_term_ids as $id ) {
+			$get_term = $wpdb->get_row( "SELECT name, slug FROM wp_terms WHERE term_id = $id", 'ARRAY_A' );
+			array_push( $top_terms_name, $get_term['name'] );
+			array_push( $top_terms_slug, $get_term['slug'] );
+		}
+		?>
+		<ol>
+			<?php
+			$len = count( $top_terms_name );
+			for ( $i = 0; $i < $len; $i++ ) {
+				echo "<li style='font-size:15px;'> <a target='_blank' href=" . get_site_url() . "/book-category/$top_terms_slug[$i]>$top_terms_name[$i]</li>";
+			}
+			?>
+		</ol>
+		<?php
+	}
+
 }
