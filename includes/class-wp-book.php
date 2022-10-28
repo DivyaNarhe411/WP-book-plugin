@@ -194,6 +194,13 @@ class Wp_Book {
 			add_shortcode( 'book', array( $plugin_public, 'load_book_content' ) );
 			// action hook to display custom widget which shows books of selected category.
 		add_action( 'widgets_init', 'wp_book_widget_init' );
+		// action hook to make international localize.
+		add_action(
+			'plugins_loaded',
+			function () {
+				load_plugin_textdomain( 'wp-book', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			}
+		);
 
 	}
 	/**

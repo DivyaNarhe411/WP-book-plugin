@@ -1,0 +1,198 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2022-10-27 21:26+0530\n"
+"PO-Revision-Date: 2022-10-27 22:29+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_html;esc_html_e;esc_attr;esc_attr_e;"
+"esc_attr_x;esc_attr__;esc_html__;_x\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: admin/class-wp-book-admin.php:108 admin/class-wp-book-admin.php:110
+msgid "Books"
+msgstr "पुस्तकें"
+
+#: admin/class-wp-book-admin.php:109 admin/class-wp-book-admin.php:111
+msgid "Book"
+msgstr "पुस्तकें"
+
+#: admin/class-wp-book-admin.php:112
+msgid "Add New"
+msgstr "नया जोड़ें"
+
+#: admin/class-wp-book-admin.php:113
+msgid "Add New Book"
+msgstr "नई किताब जोड़ें"
+
+#: admin/class-wp-book-admin.php:114
+msgid "New Book"
+msgstr "नई पुस्तक"
+
+#: admin/class-wp-book-admin.php:115
+msgid "Edit Book"
+msgstr "किताब संपादित करें"
+
+#: admin/class-wp-book-admin.php:116
+msgid "View Book"
+msgstr "किताब देखें"
+
+#: admin/class-wp-book-admin.php:117
+msgid "All Books"
+msgstr "सभी किताब"
+
+#: admin/class-wp-book-admin.php:118
+msgid "Search Books"
+msgstr "किताबें खोजें"
+
+#: admin/class-wp-book-admin.php:119
+msgid "Parent Books:"
+msgstr "मूल पुस्तकें:"
+
+#: admin/class-wp-book-admin.php:120
+msgid "No books found."
+msgstr "कोई किताब नहीं मिली."
+
+#: admin/class-wp-book-admin.php:121
+msgid "No books found in Trash."
+msgstr "कूड़ेदान में कोई किताब नहीं मिली."
+
+#: admin/class-wp-book-admin.php:149
+msgid "Book Categories"
+msgstr "पुस्तक श्रेणियां"
+
+#: admin/class-wp-book-admin.php:150 admin/class-wp-book-admin.php:151
+msgid "Book Category"
+msgstr "पुस्तक श्रेणि"
+
+#: admin/class-wp-book-admin.php:152
+msgid "All Items"
+msgstr "सभी वस्तुएं"
+
+#: admin/class-wp-book-admin.php:153 admin/class-wp-book-admin.php:194
+msgid "Parent Item"
+msgstr "मूल वस्तुएं"
+
+#: admin/class-wp-book-admin.php:154 admin/class-wp-book-admin.php:195
+msgid "Parent Item:"
+msgstr "मूल वस्तुएं:"
+
+#: admin/class-wp-book-admin.php:155
+msgid "Add Book Category"
+msgstr "पुस्तक श्रेणी जोड़ें"
+
+#: admin/class-wp-book-admin.php:156
+msgid "Add New Book Category"
+msgstr "पुस्तक श्रेणी जोड़ें"
+
+#: admin/class-wp-book-admin.php:157
+msgid "Edit Book Category"
+msgstr "किताब संपादित करें"
+
+#: admin/class-wp-book-admin.php:158
+msgid "Update Book Category"
+msgstr "पुस्तक श्रेणी जोड़ें"
+
+#: admin/class-wp-book-admin.php:159
+msgid "View Book Category"
+msgstr "किताब देखें"
+
+#: admin/class-wp-book-admin.php:160 admin/class-wp-book-admin.php:201
+msgid "Separate items with commas"
+msgstr "अल्पविराम से आइटम अलग करें"
+
+#: admin/class-wp-book-admin.php:161 admin/class-wp-book-admin.php:202
+msgid "Add or remove items"
+msgstr "आइटम जोड़ें या निकालें"
+
+#: admin/class-wp-book-admin.php:162 admin/class-wp-book-admin.php:203
+msgid "Choose from the most used"
+msgstr "सबसे अधिक इस्तेमाल में से चुनें"
+
+#: admin/class-wp-book-admin.php:163 admin/class-wp-book-admin.php:204
+msgid "Popular Items"
+msgstr "लोकप्रिय आइटम"
+
+#: admin/class-wp-book-admin.php:164
+msgid "Search Items"
+msgstr "किताबें खोजें"
+
+#: admin/class-wp-book-admin.php:165
+msgid "Not Found"
+msgstr "नहीं मिला"
+
+#: admin/class-wp-book-admin.php:166 admin/class-wp-book-admin.php:207
+msgid "No items"
+msgstr "कोई वस्तु नहीं"
+
+#: admin/class-wp-book-admin.php:167 admin/class-wp-book-admin.php:208
+msgid "Items list"
+msgstr "आइटम सूची"
+
+#: admin/class-wp-book-admin.php:168 admin/class-wp-book-admin.php:209
+msgid "Items list navigation"
+msgstr "आइटम सूची नेविगेशन"
+
+#: admin/class-wp-book-admin.php:190
+msgid "Book Tags"
+msgstr "पुस्तक टैग"
+
+#: admin/class-wp-book-admin.php:191 admin/class-wp-book-admin.php:192
+msgid "Book Tag"
+msgstr "पुस्तक टैग"
+
+#: admin/class-wp-book-admin.php:193
+msgid "All Book Tags"
+msgstr "सभी बुक टैग"
+
+#: admin/class-wp-book-admin.php:196
+msgid "Add Book Tag"
+msgstr "पुस्तक टैग जोड़ें"
+
+#: admin/class-wp-book-admin.php:197
+msgid "Add New Book Tag"
+msgstr "नई पुस्तक टैग जोड़ें"
+
+#: admin/class-wp-book-admin.php:198
+msgid "Edit Book Tag"
+msgstr "पुस्तक टैग संपादित करें"
+
+#: admin/class-wp-book-admin.php:199
+msgid "Update Book Tag"
+msgstr "अपडेट बुक टैग"
+
+#: admin/class-wp-book-admin.php:200
+msgid "View Book Tag"
+msgstr "बुक टैग देखें"
+
+#: admin/class-wp-book-admin.php:205
+msgid "Search Book Tag"
+msgstr "खोज पुस्तक टैग"
+
+#: admin/class-wp-book-admin.php:206
+msgid "Not Book Tag Found"
+msgstr "बुक टैग नहीं मिला"
+
+#: admin/class-wp-book-admin.php:230
+msgid "Books Information"
+msgstr "पुस्तकों की जानकारी"
+
+#: admin/class-wp-book-admin.php:369
+msgid "Booksmenu"
+msgstr "बुकमेनू"
+
+#: widgets/class-wpb-book-widget.php:60
+msgid "Text:"
+msgstr "मूलपाठ:"
+
+#: widgets/class-wpb-book-widget.php:68
+msgid "Select"
+msgstr "चुनें"

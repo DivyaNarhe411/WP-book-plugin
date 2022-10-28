@@ -136,10 +136,10 @@ class WPB_Book_Widget extends WP_Widget {
 
 		// Display text field.
 		if ( $text ) {
-			echo $args['before_widget'] . $args['before_title'] . $text . $args['after_title'];
+			echo $args['before_widget'] . $args['before_title'] . esc_attr( $text ) . $args['after_title'];
 		}
 
-		// Display select field.
+		// Display select field.new books.
 		$id_count = 0;
 		if ( $select ) {
 			$args  = array(

@@ -105,7 +105,7 @@ class Wp_Book_Admin {
 	 */
 	public function wp_custom_book_init() {
 		$labels = array(
-			'name'               => _x( 'Books', 'Post type generwp-bookwp-book' ),
+			'name'               => _x( 'Books', 'Post type generwp-book', 'wp-book' ),
 			'singular_name'      => _x( 'Book', 'Post type singular name', 'wp-book' ),
 			'menu_name'          => _x( 'Books', 'Admin Menu text', 'wp-book' ),
 			'name_admin_bar'     => _x( 'Book', 'Add New on Toolbar', 'wp-book' ),
@@ -258,7 +258,7 @@ class Wp_Book_Admin {
 			<tbody>
 				<tr>
 					<th scope="row"><label for="wpb-custom-author-name">Author Name</label></th>
-					<td><input name="wpb-custom-author-name" type="text" id="wpb-custom-author-name" value="<?php echo esc_attr( $author ); ?>" placeholder="Author Name" class="regular-text" autocomplete="off"></td>
+					<td><input name="wpb-custom-author-name" type="text" id="wpb-custom-author-name" value="<?php echo esc_attr( $author ); ?>" placeholder= "Author Name" class="regular-text" autocomplete="off"></td>
 				</tr>
 				<tr>
 					<th scope="row"><label for="wpb-custom-price">Book Price</label></th>
@@ -455,7 +455,7 @@ class Wp_Book_Admin {
 			<?php
 			$len = count( $top_terms_name );
 			for ( $i = 0; $i < $len; $i++ ) {
-				echo "<li style='font-size:15px;'> <a target='_blank' href=" . get_site_url() . "/book-category/$top_terms_slug[$i]>$top_terms_name[$i]</li>";
+				echo "<li style='font-size:15px;'> <a target='_blank' href=" . get_site_url() . "/book-category/$top_terms_slug[$i]>$top_terms_name[$i] </li>";
 			}
 			?>
 		</ol>
