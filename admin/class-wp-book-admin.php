@@ -105,7 +105,7 @@ class Wp_Book_Admin {
 	 */
 	public function wp_custom_book_init() {
 		$labels = array(
-			'name'               => _x( 'Books', 'Post type generwp-book', 'wp-book' ),
+			'name'               => _x( 'Books', 'Post type general wp-book', 'wp-book' ),
 			'singular_name'      => _x( 'Book', 'Post type singular name', 'wp-book' ),
 			'menu_name'          => _x( 'Books', 'Admin Menu text', 'wp-book' ),
 			'name_admin_bar'     => _x( 'Book', 'Add New on Toolbar', 'wp-book' ),
@@ -257,28 +257,53 @@ class Wp_Book_Admin {
 		<table class="form-table">
 			<tbody>
 				<tr>
-					<th scope="row"><label for="wpb-custom-author-name">Author Name</label></th>
-					<td><input name="wpb-custom-author-name" type="text" id="wpb-custom-author-name" value="<?php echo esc_attr( $author ); ?>" placeholder= "Author Name" class="regular-text" autocomplete="off"></td>
+					<th scope="row"><label for="wpb-custom-author-name">
+					<?php
+						esc_html_e( 'Author Name', 'wp-book' );
+					?>
+					</label>
+				</th>
+					<td><input name="wpb-custom-author-name" type="text" id="wpb-custom-author-name" value="<?php echo esc_attr( $author ); ?>" placeholder= "<?php esc_html_e( 'Author Name', 'wp-book' ); ?>" class="regular-text" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="wpb-custom-price">Book Price</label></th>
-					<td><input name="wpb-custom-price" type="text" id="wpb-custom-price" value="<?php echo esc_attr( $price ); ?>" placeholder="Book Price" class="regular-text" autocomplete="off"></td>
+					<th scope="row"><label for="wpb-custom-price">
+					<?php
+						esc_html_e( 'Book Price', 'wp-book' );
+					?>
+					</label></th>
+					<td><input name="wpb-custom-price" type="text" id="wpb-custom-price" value="<?php echo esc_attr( $price ); ?>" placeholder="<?php echo esc_html_e( 'Book Price', 'wp-book' ); ?> " class="regular-text" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="wpb-custom-publisher">Publisher</label></th>
-					<td><input name="wpb-custom-publisher" type="text" id="wpb-custom-publisher" value="<?php echo esc_attr( $publisher ); ?>" placeholder="Publisher" class="regular-text" autocomplete="off"></td>
+					<th scope="row"><label for="wpb-custom-publisher">
+					<?php
+						esc_html_e( 'Publisher', 'wp-book' );
+					?>
+					</label></th>
+					<td><input name="wpb-custom-publisher" type="text" id="wpb-custom-publisher" value="<?php echo esc_attr( $publisher ); ?>" placeholder="<?php echo esc_html_e( 'Publisher', 'wp-book' ); ?> " class="regular-text" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="wpb-custom-year">Year</label></th>
-					<td><input name="wpb-custom-year" type="number" id="wpb-custom-year" value="<?php echo esc_attr( $year ); ?>" placeholder="Year" class="regular-text" autocomplete="off"></td>
+					<th scope="row"><label for="wpb-custom-year">
+					<?php
+						esc_html_e( 'Year', 'wp-book' );
+					?>
+					</label></th>
+					<td><input name="wpb-custom-year" type="number" id="wpb-custom-year" value="<?php echo esc_attr( $year ); ?>" placeholder="<?php esc_html_e( 'Year', 'wp-book' ); ?>" class="regular-text" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="wpb-custom-edition">Edition</label></th>
-					<td><input name="wpb-custom-edition" type="text" id="wpb-custom-edition" value="<?php echo esc_attr( $edition ); ?>" placeholder="Edition" class="regular-text" autocomplete="off"></td>
+					<th scope="row"><label for="wpb-custom-edition">
+					<?php
+						esc_html_e( 'Edition', 'wp-book' );
+					?>
+					</label></th>
+					<td><input name="wpb-custom-edition" type="text" id="wpb-custom-edition" value="<?php echo esc_attr( $edition ); ?>" placeholder="<?php echo esc_html_e( 'Edition', 'wp-book' ); ?>" class="regular-text" autocomplete="off"></td>
 				</tr>
 				<tr>
-					<th scope="row"><label for="wpb-custom-url">URL</label></th>
-					<td><input name="wpb-custom-url" type="url" id="wpb-custom-url" value="<?php echo esc_attr( $url ); ?>" placeholder="URL eg. https://example.com" class="regular-text" autocomplete="off"></td>
+					<th scope="row"><label for="wpb-custom-url">
+					<?php
+						esc_html_e( 'URL', 'wp-book' );
+					?>
+					</label></th>
+					<td><input name="wpb-custom-url" type="url" id="wpb-custom-url" value="<?php echo esc_attr( $url ); ?>" placeholder="<?php echo esc_html_e( 'URL eg. https://example.com', 'wp-book' ); ?>" class="regular-text" autocomplete="off"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -381,34 +406,68 @@ class Wp_Book_Admin {
 		<?php
 		if ( isset( $_GET['settings-updated'] ) && true == $_GET['settings-updated'] ) {
 			?>
-			<div class="notice notice-success"><p>Settings Saved Successfully</p></div>
+			<div class="notice notice-success"><p> 
+			<?php
+			esc_html_e( 'Settings Saved Successfully', 'wp-book' );
+			?>
+			</p></div>
 			<?php
 		}
 		?>
-			<h2>Book Settings</h2>
-			<p>Manages all the settings of book plugin</p>
+			<h2>
+			<?php
+			esc_html_e( 'Book Settings', 'wp-book' );
+			?>
+			</h2>
+			<p>
+			<?php
+			esc_html_e( 'Manages all the settings of book plugin', 'wp-book' );
+			?>
+			</p>
 
 			<form method="post" action="options.php">
 				<?php settings_fields( 'book_settings_group' ); ?>
 				<table class="form-table">
 					<tbody>
 						<tr>
-							<th scope="row"><label for="book_currency">Currency</label></th>
+							<th scope="row"><label for="book_currency">
+							<?php
+								esc_html_e( 'Currency', 'wp-book' );
+							?>
+								</label></th>
 							<?php $currency_option = get_option( 'book_currency' ); ?>
 							<td>
 								<select name="book_currency" id="book_currency" class="regular-text">
-									<option value="Indian Rupees" <?php selected( $currency_option, 'Indian Rupees' ); ?> >Indian Rupees</option>
-									<option value="US Dollar" <?php selected( $currency_option, 'US Dollar' ); ?> >US Dollar</option>
-									<option value="UK Pound Sterling" <?php selected( $currency_option, 'UK Pound Sterling' ); ?> >UK Pound Sterling</option>
+									<option value="Indian Rupees" <?php selected( $currency_option, 'Indian Rupees' ); ?> >
+									<?php
+										esc_html_e( 'Indian Rupees', 'wp-book' );
+									?>
+									</option>
+									<option value="US Dollar" <?php selected( $currency_option, 'US Dollar' ); ?> >
+									<?php
+										esc_html_e( 'US Dollar', 'wp-book' );
+									?>
+									</option>
+									<option value="UK Pound Sterling" <?php selected( $currency_option, 'UK Pound Sterling' ); ?> >
+									<?php
+										esc_html_e( 'UK Pound Sterling', 'wp-book' );
+									?>
+									</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="book_no_pages">No. of Books (per page)</label></th>
-							<td><input type="text" class="regular-text" name="book_no_pages" id="book_no_pages" placeholder="No. of Books" value="<?php echo esc_attr( get_option( 'book_no_pages' ) ); ?>"></td>
+							<th scope="row"><label for="book_no_pages">
+							<?php
+								esc_html_e( 'No. of Books (per page)', 'wp-book' );
+							?>
+							</label></th>
+							<td><input type="text" class="regular-text" name="book_no_pages" id="book_no_pages" placeholder="<?php esc_html_e( 'No.of Books', 'wp-book' ); ?>" value="<?php echo esc_attr( get_option( 'book_no_pages' ) ); ?>"></td>
 						</tr>
 						<tr>
-							<td><input type="submit" value="Save Settings" class="button-primary"></td>
+							<td><input type="submit" value="
+							<?php esc_html_e( 'Save Changes' ); ?>
+							" class="button-primary"></td>
 						</tr>
 					</tbody>
 				</table>
